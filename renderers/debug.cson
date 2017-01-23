@@ -1,0 +1,31 @@
+fileTypes: [
+  "debug"
+]
+tags:
+  body:
+    open: '[\\0'
+    close: ']'
+  line:
+    open: '\n  [\\0 \\N'
+    close: ']'
+  scope:
+    open: '\n  \\T[scope \\0'
+    close: ']'
+    escape: [
+      {
+        pattern: "^(.*?)\\.([^.]+)$"
+        replace: '\\2 \\1'
+      }
+    ]
+  value:
+    open: '\n  \\T[\\0 "'
+    close: '"]'
+    escape: [
+      {
+        pattern: '"'
+        replace: '\\"'
+      }
+    ]
+name: 'Debug'
+scopeName: 'text.debug'
+tab: '  '

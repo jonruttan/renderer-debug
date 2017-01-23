@@ -1,0 +1,31 @@
+fileTypes: [
+  "debug-term"
+]
+tags:
+  body:
+    open: '\x1b[0;49;1;36m[\\0'
+    close: '\x1b[1;36m]'
+  line:
+    open: '\n  \x1b[0;33m[\\0 \\N'
+    close: '\x1b[0;33m]'
+  scope:
+    open: '\n  \\T\x1b[0;36m[scope \x1b[1;35m\\0'
+    close: '\x1b[0;36m]'
+    escape: [
+      {
+        pattern: "^(.*?)\\.([^.]+)$"
+        replace: '\\2 \\1'
+      }
+    ]
+  value:
+    open: '\n  \\T\x1b[1;34m[\\0 \x1b[1;32m"'
+    close: '"\x1b[1;34m]'
+    escape: [
+      {
+        pattern: '"'
+        replace: '\\"'
+      }
+    ]
+name: 'Debug'
+scopeName: 'term.debug'
+tab: '  '
